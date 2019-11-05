@@ -2,21 +2,24 @@
     <div class="card">
       <div class="card-header">Login</div>
       <div class="card-body">
-        <form #loginForm=ngForm (ngSubmit)="onSubmit()">
-          <div class="alert alert-danger" [hidden]="!error">
-            {{error}}
-          </div>
+        <form #signupForm=ngForm (ngSubmit)="onSubmit()">
           <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-10">
               <input type="email" name="email" class="form-control" id="correo" [(ngModel)]="form.email" placeholder="Email" required>
             </div>
+            <div class="alert alert-danger" [hidden]="!error.email">
+              {{error.email}}
+            </div>
           </div>
 
           <div class="form-group row">
-              <label for="inputEmail3" class="col-sm-2 col-form-label">Nombre</label>
+              <label for="inputName" class="col-sm-2 col-form-label">Nombre</label>
               <div class="col-sm-10">
                 <input type="text" name="name" class="form-control" id="name" [(ngModel)]="form.name" placeholder="Nombre" required>
+              </div>
+              <div class="alert alert-danger" [hidden]="!error.name">
+                {{error.name}}
               </div>
             </div>
 
@@ -24,6 +27,9 @@
             <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
             <div class="col-sm-10">
               <input type="password" name="password" class="form-control" id="contrasena" [(ngModel)]="form.password" placeholder="Password" required>
+            </div>
+            <div class="alert alert-danger" [hidden]="!error.password">
+              {{error.password}}
             </div>
           </div>
 
@@ -37,10 +43,10 @@
           <div class="form-group row">
             <div class="col-sm-10 offset-2">
 
-                    <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Iniciar sesión</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="!signupForm.valid">Registarse</button>
 
 
-                      <a routerLink="/signup" class="btn btn-info float-right">Registrarse</a>
+                      <a routerLink="/signup" class="btn btn-info float-right">Iniciar sesión</a>
 
             </div>
 
